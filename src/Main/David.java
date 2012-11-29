@@ -4,7 +4,7 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.geom.Ellipse2D;
 import java.awt.geom.Line2D;
-
+//mmeemememememe
 public class David {
 	public David(){
 		crotchLocationLocation =  new Location(125,175+jumper);
