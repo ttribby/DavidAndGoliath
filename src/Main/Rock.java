@@ -31,10 +31,10 @@ public class Rock {
 		locationForTesting.setY((-.5*9.81*Math.pow(milliCount*timeConstant, 2) + Math.sin(Math.toRadians(angle))*speed*milliCount*timeConstant + location.y));
 		//print stuff
 		System.out.println("///////printing x=" + Math.floor(x) + "y=" + Math.floor(y));
-//		g.fillOval((int)Math.floor(x), (int)Math.floor(y), 10, 10);
-//		g.fillOval((int)Math.floor(x), (int)Math.floor(y)-1, 10, 10);
-//		g.fillOval((int)Math.floor(x), (int)Math.floor(y)-2, 10, 10);
-//		g.fillOval((int)Math.floor(x)-1, (int)Math.floor(y), 10, 10);
-//		g.fillOval((int)Math.floor(x)-2, (int)Math.floor(y), 10, 10);
+		g.fillOval((int)Math.floor(x), (int)Math.floor(y), 10, 10);
+		g.fillOval((int)Math.floor(x), (int)Math.floor(y)-1, 10, 10);
+		g.fillOval((int)Math.floor(x), (int)Math.floor(y)-2, 10, 10);
+		g.fillOval((int)Math.floor(x)-1, (int)Math.floor(y), 10, 10);
+		g.fillOval((int)Math.floor(x)-2, (int)Math.floor(y), 10, 10);
 	}
 }
