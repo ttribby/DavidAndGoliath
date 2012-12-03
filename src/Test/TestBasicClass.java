@@ -40,7 +40,7 @@ public class TestBasicClass {
 		mainWindow.playingArea.rock.location.setY(50);
 		mainWindow.playingArea.rock.speed = 75;
 		mainWindow.playingArea.rock.angle = 30;
-		mainWindow.playingArea.rock.updateRockLocation(mainWindow.playingArea.theGraphics);
+		mainWindow.playingArea.rock.updateRockLocation(mainWindow.playingArea.theGraphics,new Location (0,0));//just added location to this 
 		//Test that incrementing the rock by time unit places the rock in the correct next position
 		Assert.assertEquals(Math.floor(mainWindow.playingArea.rock.locationForTesting.getX()), 56.0);
 		Assert.assertEquals(Math.floor(mainWindow.playingArea.rock.locationForTesting.getY()), 53.0);
@@ -65,14 +65,14 @@ public class TestBasicClass {
 		//check moving to the left down the sling without an angle
 		mainWindow.playingArea.sling.endOfSling.setX(230);
 		mainWindow.playingArea.sling.endOfSling.setY(290);
-		mainWindow.playingArea.sling.drawNextEndOfSlingLocation(0,5,mainWindow.playingArea.theGraphics);
+		mainWindow.playingArea.sling.drawNextEndOfSlingLocation(0,5,mainWindow.playingArea.theGraphics,false);//just added boolean to this 
 		Assert.assertEquals(mainWindow.playingArea.sling.endOfSling.getX(), 225.0);
 		Assert.assertEquals(mainWindow.playingArea.sling.endOfSling.getY(), 290.0);
 
 		//check moving to the left down the sling with an angle
 		mainWindow.playingArea.sling.endOfSling.setX(70);
 		mainWindow.playingArea.sling.endOfSling.setY(290);
-		mainWindow.playingArea.sling.drawNextEndOfSlingLocation(0,5,mainWindow.playingArea.theGraphics);
+		mainWindow.playingArea.sling.drawNextEndOfSlingLocation(0,5,mainWindow.playingArea.theGraphics,false);//just added boolean to this 
 		Assert.assertEquals(mainWindow.playingArea.sling.endOfSling.getX(), 75.0);
 		Assert.assertEquals(mainWindow.playingArea.sling.endOfSling.getY(), 290.0);
 	}
