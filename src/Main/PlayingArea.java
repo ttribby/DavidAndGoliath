@@ -64,7 +64,7 @@ public class PlayingArea extends JPanel{
 
 			}
 			mainWindow.southDisplay.powerResult.setText(distanceDragged/2 + "%");
-			sling.drawNextEndOfSlingLocation(angle, 5, g,shootSling);
+			sling.drawNextEndOfSlingLocation(angle, /*5*/distanceDragged/50+3, g,shootSling);
 		//draw rock
 		}else{
 			rock.updateRockLocation(g,sling.endOfSling);

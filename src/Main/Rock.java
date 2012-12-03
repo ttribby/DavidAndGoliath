@@ -27,7 +27,7 @@ public class Rock {
 //		System.out.println("cos =  " + Math.cos(Math.toRadians(angle)));
 //		System.out.println("sin = " + Math.sin(Math.toRadians(angle)));
 		double x = Math.cos(Math.toRadians(angle))*speed*milliCount*timeConstant + location.x;
-		double y = 550 - (-.5*9.81*Math.pow(milliCount*timeConstant, 2) + Math.sin(Math.toRadians(angle))*speed*milliCount*timeConstant + location.y);
+		double y = 550 - (-.5*9.81*Math.pow(milliCount*timeConstant, 2) + Math.sin(Math.toRadians(angle))*speed*milliCount*timeConstant + 550-location.y);
 		locationForTesting.setX(x);
 		locationForTesting.setY((-.5*9.81*Math.pow(milliCount*timeConstant, 2) + Math.sin(Math.toRadians(angle))*speed*milliCount*timeConstant + location.y));
 		//print stuff
