@@ -50,6 +50,7 @@ public class PlayingArea extends JPanel{
 		// TODO Auto-generated method stub
 		super.paintComponent(g);
 		david.drawDavid(g);
+		goliath.drawGoliath(g);
 		
 		sling.drawNextEndOfSlingLocation(0, 5, g);
 		//draw line
