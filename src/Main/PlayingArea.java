@@ -79,16 +79,17 @@ public class PlayingArea extends JPanel{
 			if ((lineEnd.getX()-lineStart.getX())   == 0)
 				mainWindow.southDisplay.angleResult.setText("0");
 			else{
-				mainWindow.southDisplay.angleResult.setText(angle+ "deg");
+				mainWindow.southDisplay.angleResult.setText(angle+ "¡");
 			}
 			mainWindow.southDisplay.powerResult.setText(distanceDragged/2 + "%");
 			sling.drawNextEndOfSlingLocation(angle, distanceDragged/50+3, g,shootSling);
 			//This part will draw rock(s).
 		}else{
 			if(quizing){
+				sling.updateAngle(0);
 				firstRockQuiz.updateRockLocation(g,sling.endOfSling);
 				secondRockQuiz.updateRockLocation(g,sling.endOfSling);
-				if(firstRockQuiz.locationForTesting.y<80) {
+				if(firstRockQuiz.locationForTesting.y<120) {
 					quizing = false;
 					showMoreQuizInfo = true;					
 				}

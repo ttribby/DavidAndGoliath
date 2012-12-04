@@ -4,6 +4,7 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.geom.Ellipse2D;
 import java.awt.geom.Line2D;
+import java.awt.geom.Rectangle2D;
 
 public class Goliath {
 	
@@ -39,7 +40,10 @@ public class Goliath {
 		g2.draw(new Line2D.Double(leftFootLocationLocation.getX(), leftFootLocationLocation.getY(), crotchLocationLocation.getX(), crotchLocationLocation.getY()));
 		g2.draw(new Line2D.Double(rightFootLocationLocation.getX(), rightFootLocationLocation.getY(), crotchLocationLocation.getX(), crotchLocationLocation.getY()));
 		g2.draw(new Line2D.Double(crotchLocationLocation.getX(), crotchLocationLocation.getY(), neckLocation.getX(), neckLocation.getY()));
-		g2.draw(new Ellipse2D.Double(headLocation.getX(), headLocation.getY(), headRadius, headRadius));
+		if(PlayingArea.hitGoliath){
+			g2.draw(new Rectangle2D.Double(headLocation.getX(), headLocation.getY(), headRadius, headRadius));			
+		}else
+			g2.draw(new Ellipse2D.Double(headLocation.getX(), headLocation.getY(), headRadius, headRadius));
 		g2.draw(new Line2D.Double(neckEndLocation.getX(), neckEndLocation.getY(), rHandLocation.getX(), rHandLocation.getY()));
 		g2.draw(new Line2D.Double(neckEndLocation.getX(), neckEndLocation.getY(), lHandLocation.getX(), lHandLocation.getY()));
 		

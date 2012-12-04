@@ -14,7 +14,9 @@ import javax.swing.border.TitledBorder;
 //This class handles the pop-up quiz window.
 public class QuizWindow extends JFrame {
 	//Create the pop-up, state the question, and create the buttons.
-	public QuizWindow(){
+	private PlayingArea playingArea;
+	public QuizWindow(PlayingArea playingArea){
+		this.playingArea = playingArea;
 		JLabel question = new JLabel("<html>     Two rocks fly in the air at 0 degrees.  <br>    The first one is launched at 50% power and the second is launched at 100% power. <br> Which will hit the ground first? </html>      ");
 		JButton hundred = new JButton("100%");
 		JButton fifty = new JButton("50%");
@@ -32,16 +34,18 @@ public class QuizWindow extends JFrame {
 	private class HundredListener implements ActionListener{
 		public void actionPerformed(ActionEvent e)
 		{	
-			JOptionPane.showMessageDialog(null, "Your wrong they will both hit the ground at the same time", "Wrong", JOptionPane.QUESTION_MESSAGE);
+			JOptionPane.showMessageDialog(null, "You're wrong they will both hit the ground at the same time", "Wrong", JOptionPane.QUESTION_MESSAGE);
 			setVisible(false);
+			playingArea.quizing = true;
 		}
 	}
 
 	private class FiftyListener implements ActionListener{
 		public void actionPerformed(ActionEvent e)
 		{	
-			JOptionPane.showMessageDialog(null, "Your wrong they will both hit the ground at the same time", "Wrong", JOptionPane.QUESTION_MESSAGE);
+			JOptionPane.showMessageDialog(null, "You're wrong they will both hit the ground at the same time", "Wrong", JOptionPane.QUESTION_MESSAGE);
 			setVisible(false);		
+			playingArea.quizing = true;
 		}
 	}
 }

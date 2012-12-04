@@ -36,7 +36,7 @@ public class MainWindow extends JFrame {
 		JButton quiz = new JButton("Take a Quiz");
 		quiz.addActionListener(new QuizDude());
 		//Instantiate the quiz and set its visibility and behavior. 
-		quizWindow = new QuizWindow();
+		quizWindow = new QuizWindow(playingArea);
 		quizWindow.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		add(quiz, BorderLayout.WEST);
 		add(southDisplay,BorderLayout.SOUTH);
@@ -53,11 +53,10 @@ public class MainWindow extends JFrame {
 		public void actionPerformed(ActionEvent e)
 		{	
 			//This demonstrates the answer to the quiz.
-			playingArea.firstRockQuiz = new Rock(0,30);
-			playingArea.secondRockQuiz = new Rock(0,5);
+			playingArea.firstRockQuiz = new Rock(0,100);
+			playingArea.secondRockQuiz = new Rock(0,50);
 			playingArea.firstRockQuiz.timeConstant = 500;
 			playingArea.secondRockQuiz.timeConstant = 500;
-			playingArea.quizing = true;
 			quizWindow.setVisible(true);			
 			quizWindow.setVisible(true);
 		}
