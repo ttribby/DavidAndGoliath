@@ -10,6 +10,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
+//This class is used to pop-up the window declaring your victory.  If you are victorious.
 public class WinWindow extends JFrame {
 	public WinWindow(){
 		setSize(300,300);
@@ -21,6 +22,7 @@ public class WinWindow extends JFrame {
 		add(wonInfo,BorderLayout.CENTER);
 	}
 
+	//This closes the window when you click the button.
 	private class closePanel implements ActionListener{
 		public void actionPerformed(ActionEvent e)
 		{

@@ -52,16 +52,14 @@ public class MainWindow extends JFrame {
 	private class QuizDude implements ActionListener{
 		public void actionPerformed(ActionEvent e)
 		{	
-<<<<<<< HEAD
+			//This demonstrates the answer to the quiz.
 			playingArea.firstRockQuiz = new Rock(0,30);
 			playingArea.secondRockQuiz = new Rock(0,5);
 			playingArea.firstRockQuiz.timeConstant = 500;
 			playingArea.secondRockQuiz.timeConstant = 500;
 			playingArea.quizing = true;
 			quizWindow.setVisible(true);			
-=======
 			quizWindow.setVisible(true);
->>>>>>> 40323995eff9415a761334a6acaba6a06a2034f9
 		}
 	}
 }

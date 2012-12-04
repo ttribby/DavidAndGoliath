@@ -7,6 +7,7 @@ import javax.swing.JPanel;
 import javax.swing.JSlider;
 import javax.swing.JTextField;
 
+//This class is used to display the information on the bottom (or 'south') end of the main window.  This is the Power and Angle.
 public class SouthDisplay extends JPanel {
 	private PlayingArea playingArea;
 	public JSlider slider1;
@@ -19,7 +20,7 @@ public class SouthDisplay extends JPanel {
 	public JLabel angle;
 	public JTextField powerResult;
 	public JTextField angleResult;
-
+	//Creating the field names and updating them with values for power and angle.
 	public SouthDisplay(PlayingArea playingArea){
 		this.playingArea = playingArea;
 		slider1 = new JSlider();
@@ -40,6 +41,7 @@ public class SouthDisplay extends JPanel {
 		add(angleResult);	
 	}
 
+	//This is never used, but can be used to redraw the playing area when scrolling.
 	private class FishishedSchrolling implements MouseMotionListener{
 
 		@Override
