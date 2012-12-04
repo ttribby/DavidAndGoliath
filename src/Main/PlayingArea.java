@@ -56,7 +56,15 @@ public class PlayingArea extends JPanel{
 		david.drawDavid(g);
 		goliath.drawGoliath(g);
 
-
+		//show more quiz info
+		if(showMoreQuizInfo){
+			firstRockQuiz.milliCount--;
+			secondRockQuiz.milliCount--;
+			firstRockQuiz.updateRockLocation(g,sling.endOfSling);
+			secondRockQuiz.updateRockLocation(g,sling.endOfSling);
+			g.drawString("see both land at the same time", (int) Math.floor(secondRockQuiz.locationForTesting.x), (int) Math.floor(500 - secondRockQuiz.locationForTesting.y - 50));
+		}
+		
 		//draw line
 		if(drawLine){
 			//use graphics2 because it can take doubles as inputs
@@ -73,10 +81,16 @@ public class PlayingArea extends JPanel{
 		}else{
 
 			if(quizing){
-				firstRockQuiz = new Rock(0,100);
-				secondRockQuiz = new Rock(0,50);
+
+
 				firstRockQuiz.updateRockLocation(g,sling.endOfSling);
 				secondRockQuiz.updateRockLocation(g,sling.endOfSling);
+//				System.out.println("location = " + firstRockQuiz.locationForTesting.y);
+				if(firstRockQuiz.locationForTesting.y<80) {
+					quizing = false;
+					showMoreQuizInfo = true;					
+				}
+
 			}else{
 				if(!hitGoliath){
 					rock.updateRockLocation(g,sling.endOfSling);
@@ -88,7 +102,7 @@ public class PlayingArea extends JPanel{
 			}
 		}
 	}//////////////////}//////////////////}//////////////////}//////////////////}//////////////////}//////////////////}//////////////////
-
+	public boolean showMoreQuizInfo = false;
 	public static boolean hitGoliath;
 	public boolean quizing;
 	//shooting angle from 0 to 360
@@ -119,6 +133,7 @@ public class PlayingArea extends JPanel{
 		@Override
 		public void mousePressed(MouseEvent e) {
 			// TODO Auto-generated method stub
+			showMoreQuizInfo = false;
 			shootSling = false;
 			mouseXCoord = e.getX();
 			mouseYCoord = e.getY();

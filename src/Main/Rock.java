@@ -17,7 +17,9 @@ public class Rock {
 	
 	public Location location;
 	public Location locationForTesting;
-	//increment 1 ms
+	public double timeConstant = .1;
+
+	//increment 1 ms\
 	public void updateRockLocation(Graphics g,Location c){
 
 		location = c;

@@ -44,10 +44,12 @@ public void win(){
 	private class QuizDude implements ActionListener{
 		public void actionPerformed(ActionEvent e)
 		{	
-//			playingArea.quizing = true;
-			quizWindow.setVisible(true);
-			
-			
+			playingArea.firstRockQuiz = new Rock(0,30);
+			playingArea.secondRockQuiz = new Rock(0,5);
+			playingArea.firstRockQuiz.timeConstant = 500;
+			playingArea.secondRockQuiz.timeConstant = 500;
+			playingArea.quizing = true;
+			quizWindow.setVisible(true);			
 		}
 	}
 }
