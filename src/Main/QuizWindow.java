@@ -14,7 +14,7 @@ import javax.swing.border.TitledBorder;
 public class QuizWindow extends JFrame {
 	public QuizWindow(){
 
-		JLabel question = new JLabel("<html>     2 rocks fly in the air at 0 degrees.  <br>    The first one is launched at 50% power and the second is launched at 100% power. <br> Which will hit the ground first? </html>      ");
+		JLabel question = new JLabel("<html>     Two rocks fly in the air at 0 degrees.  <br>    The first one is launched at 50% power and the second is launched at 100% power. <br> Which will hit the ground first? </html>      ");
 		JButton hundred = new JButton("100%");
 		JButton fifty = new JButton("50%");
 		question.setBorder(new TitledBorder(new EtchedBorder(), "Quizzer"));
@@ -26,8 +26,7 @@ public class QuizWindow extends JFrame {
 		setSize(800,200);
 		this.pack();
 	}
-	
-	
+
 	private class HundredListener implements ActionListener{
 		public void actionPerformed(ActionEvent e)
 		{	
@@ -35,6 +34,7 @@ public class QuizWindow extends JFrame {
 			setVisible(false);
 		}
 	}
+
 	private class FiftyListener implements ActionListener{
 		public void actionPerformed(ActionEvent e)
 		{	

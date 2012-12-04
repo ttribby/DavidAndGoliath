@@ -18,9 +18,9 @@ public class PlayingArea extends JPanel{
 	public Rock rock;
 	public Rock firstRockQuiz;
 	public Rock secondRockQuiz;
-	
 	public Sling sling;
 	public Graphics theGraphics;
+
 	public PlayingArea(MainWindow mainWindow){
 		this.mainWindow = mainWindow;
 		CellClickedListener cellClickedListener = new CellClickedListener();
@@ -38,9 +38,9 @@ public class PlayingArea extends JPanel{
 		oneMilliSecTimer.schedule(new UpdateDrawing(),0,15);
 		theGraphics = this.getGraphics();
 	}
+
 	private class UpdateDrawing extends TimerTask {
 		public void run() {
-//			System.out.println("-------");
 			repaint();
 		}
 	}
@@ -48,16 +48,10 @@ public class PlayingArea extends JPanel{
 	private Location mouseClickLocation;
 	@Override
 	protected void paintComponent(Graphics g) {
-
 		Graphics2D g2 = (Graphics2D) g;
-
-		// TODO Auto-generated method stub
 		super.paintComponent(g);
 		david.drawDavid(g);
 		goliath.drawGoliath(g);
-
-
-		//draw line
 		if(drawLine){
 			//use graphics2 because it can take doubles as inputs
 			g2.draw(new Line2D.Double(lineStart.getX(), lineStart.getY(), lineEnd.getX(), lineEnd.getY()));
@@ -71,7 +65,6 @@ public class PlayingArea extends JPanel{
 			sling.drawNextEndOfSlingLocation(angle, /*5*/distanceDragged/50+3, g,shootSling);
 			//draw rock
 		}else{
-
 			if(quizing){
 				firstRockQuiz = new Rock(0,100);
 				secondRockQuiz = new Rock(0,50);
@@ -83,12 +76,11 @@ public class PlayingArea extends JPanel{
 				}else{
 					hitGoliath = false;
 					mainWindow.win();
-
 				}
 			}
 		}
-	}//////////////////}//////////////////}//////////////////}//////////////////}//////////////////}//////////////////}//////////////////
-
+	}
+	
 	public static boolean hitGoliath;
 	public boolean quizing;
 	//shooting angle from 0 to 360
@@ -118,7 +110,6 @@ public class PlayingArea extends JPanel{
 
 		@Override
 		public void mousePressed(MouseEvent e) {
-			// TODO Auto-generated method stub
 			shootSling = false;
 			mouseXCoord = e.getX();
 			mouseYCoord = e.getY();
@@ -130,7 +121,6 @@ public class PlayingArea extends JPanel{
 			lineEnd.setX(e.getX());
 			lineEnd.setY(e.getY());
 			rock = new Rock(angle,distanceDragged);
-			
 			repaint();
 		}
 
@@ -144,16 +134,12 @@ public class PlayingArea extends JPanel{
 
 		public void mouseDragged(MouseEvent e) {
 			distanceDragged = (int) (Math.abs(Math.sqrt((Math.pow(mouseXCoord-e.getX(), 2) + Math.pow(( mouseYCoord)-e.getY(),2)))));
-			System.out.println(distanceDragged);
 			setAngle();
-			
 			lineEnd.setX(e.getX());
 			lineEnd.setY(e.getY());
 			angle = (int) Math.floor((Math.atan2( (lineEnd.getY()-lineStart.getY()),(lineStart.getX()-lineEnd.getX())  )*180/Math.PI) );
 			sling.updateAngle(angle);
-			
 			repaint();
-			
 		}
 
 		@Override
@@ -161,14 +147,9 @@ public class PlayingArea extends JPanel{
 
 		} 
 	}
+	
 	public void setAngle(){
-//		System.out.println(lineEnd.getY());
-//		System.out.println(lineStart.getY());
-//		System.out.println(lineStart.getX());
-//		System.out.println(lineEnd.getX());
-//		System.out.println("angle=" + angle);
 		angle = (int) Math.floor((Math.atan2( (lineEnd.getY()-lineStart.getY()),(lineStart.getX()-lineEnd.getX())  )*180/Math.PI) );
-//		System.out.println("angle=" + angle);
-//		System.out.println("what" + Math.toDegrees((Math.atan2(15.0, 20.0))));
 	}
+	
 }
