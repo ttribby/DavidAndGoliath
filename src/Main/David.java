@@ -1,12 +1,11 @@
 package Main;
-//raaaaaa
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.geom.Ellipse2D;
 import java.awt.geom.Line2D;
-//mmeemememememe
 public class David {
 	public David(){
+		//These are the locations of the features for David.  'jumper' is used as an offset to move David.
 		crotchLocationLocation =  new Location(125,175+jumper);
 		leftFootLocationLocation =  new Location(100,200+jumper);
 		rightFootLocationLocation =  new Location(150,200+jumper);
@@ -18,6 +17,8 @@ public class David {
 		headRadius = 15;
 		headLocation = new Location(125 - headRadius/2,125-headRadius+jumper);
 	}
+	
+	//This section sets the size of 'jumper' and creates a 'Location' for each attribute.
 	private final int  jumper = 200;
 	public int headRadius;
 	public Location nonShootingHandLocation;
@@ -30,21 +31,16 @@ public class David {
 	public Location neckLocation;
 	public Location neckEndLocation;
 	private int armLength = 20;
-	
-		
-	public Location getHandShootingLocation(int angle){
 
+	//This function takes the angle of the shot to calculate the hand location.  This is only used in JUnit testing.
+	public Location getHandShootingLocation(int angle){
 		int y=(int) (shootingHandLocation.getY() - armLength*Math.acos(Math.toRadians(angle)));
 		int x=(int) (shootingHandLocation.getX() - armLength*Math.asin(Math.toRadians(angle)));
-//		System.out.println("angle= " + angle);
-//		System.out.println("armLength*Math.acos(angle)=" + armLength*Math.acos(Math.toRadians(angle)));
-//		System.out.println("armLength*Math.acos(angle)=" + armLength*Math.acos(Math.toRadians(angle)));
-//		System.out.println();
-//	System.out.println("x= " + x + " y= " + y);
 		return new Location(x,y);
 	}
-	
+
 	public void drawDavid(Graphics g){
+		//This function draws David using values passed by the get functions; Graphics2 is used so that we may use doubles instead of integers.
 		Graphics2D g2 = (Graphics2D) g;
 		g2.draw(new Line2D.Double(leftFootLocationLocation.getX(), leftFootLocationLocation.getY(), crotchLocationLocation.getX(), crotchLocationLocation.getY()));
 		g2.draw(new Line2D.Double(rightFootLocationLocation.getX(), rightFootLocationLocation.getY(), crotchLocationLocation.getX(), crotchLocationLocation.getY()));
