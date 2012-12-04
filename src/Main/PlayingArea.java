@@ -82,7 +82,7 @@ public class PlayingArea extends JPanel{
 				mainWindow.southDisplay.angleResult.setText(angle+ "¡");
 			}
 			mainWindow.southDisplay.powerResult.setText(distanceDragged/2 + "%");
-			sling.drawNextEndOfSlingLocation(angle, distanceDragged/50+3, g,shootSling);
+			sling.drawNextEndOfSlingLocation(angle, (int)Math.floor(distanceDragged/50.0+10), g,shootSling);
 			//This part will draw rock(s).
 		}else{
 			if(quizing){
@@ -143,7 +143,7 @@ public class PlayingArea extends JPanel{
 			mouseXCoord = e.getX();
 			mouseYCoord = e.getY();
 			angle = 0;
-			distanceDragged = 0;
+			distanceDragged = 5;
 			drawLine = true;
 			lineStart.setX(e.getX());
 			lineStart.setY(e.getY());
@@ -151,6 +151,7 @@ public class PlayingArea extends JPanel{
 			lineEnd.setY(e.getY());
 			//Create a new rock to be thrown
 			rock = new Rock(angle,distanceDragged);
+			sling.updateAngle(0);
 			repaint();
 		}
 

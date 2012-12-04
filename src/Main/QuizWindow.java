@@ -17,7 +17,7 @@ public class QuizWindow extends JFrame {
 	private PlayingArea playingArea;
 	public QuizWindow(PlayingArea playingArea){
 		this.playingArea = playingArea;
-		JLabel question = new JLabel("<html>     Two rocks fly in the air at 0 degrees.  <br>    The first one is launched at 50% power and the second is launched at 100% power. <br> Which will hit the ground first? </html>      ");
+		JLabel question = new JLabel("<html>     Two rocks fly in the air at 0 degrees from horizontal.  <br>    The first one is launched at 50% power and the second is launched at 100% power. <br> Which will hit the ground first? </html>      ");
 		JButton hundred = new JButton("100%");
 		JButton fifty = new JButton("50%");
 		question.setBorder(new TitledBorder(new EtchedBorder(), "Quizzer"));
