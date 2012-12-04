@@ -9,6 +9,7 @@ public class Rock {
 		this.angle = angle;
 		this.speed = speed;
 		locationForTesting = new Location(100,200);
+		goliathHasBeenHit = false;
 	}
 	
 	//Instantiating the variables for the rock and calculations to follow.
@@ -18,7 +19,7 @@ public class Rock {
 	public Location location;
 	public Location locationForTesting;
 	public double timeConstant = .1;
-
+	private boolean goliathHasBeenHit;
 	//This function updates the rock's location every millisecond.
 	public void updateRockLocation(Graphics g,Location c){
 		location = c;
@@ -31,13 +32,16 @@ public class Rock {
 		locationForTesting.setY((-.5*9.81*Math.pow(milliCount*timeConstant, 2) + Math.sin(Math.toRadians(angle))*speed*milliCount*timeConstant + location.y));
 		if(x<Goliath.headRadius+Goliath.headLocation.x && x> Goliath.headLocation.x && y<Goliath.headRadius + Goliath.headLocation.y && y>Goliath.headLocation.y){
 			PlayingArea.hitGoliath = true;
+			goliathHasBeenHit = true;
 		}else{
 			//The rock is made up of several ovals/circles to create a more irregular look.
-			g.fillOval((int)Math.floor(x), (int)Math.floor(y), 10, 10);
-			g.fillOval((int)Math.floor(x), (int)Math.floor(y)-1, 10, 10);
-			g.fillOval((int)Math.floor(x), (int)Math.floor(y)-2, 10, 10);
-			g.fillOval((int)Math.floor(x)-1, (int)Math.floor(y), 10, 10);
-			g.fillOval((int)Math.floor(x)-2, (int)Math.floor(y), 10, 10);
+			if(!goliathHasBeenHit){
+				g.fillOval((int)Math.floor(x), (int)Math.floor(y), 10, 10);
+				g.fillOval((int)Math.floor(x), (int)Math.floor(y)-1, 10, 10);
+				g.fillOval((int)Math.floor(x), (int)Math.floor(y)-2, 10, 10);
+				g.fillOval((int)Math.floor(x)-1, (int)Math.floor(y), 10, 10);
+				g.fillOval((int)Math.floor(x)-2, (int)Math.floor(y), 10, 10);
+			}
 		}
 	}
 }

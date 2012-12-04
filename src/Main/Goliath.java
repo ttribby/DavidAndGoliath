@@ -40,6 +40,7 @@ public class Goliath {
 		g2.draw(new Line2D.Double(leftFootLocationLocation.getX(), leftFootLocationLocation.getY(), crotchLocationLocation.getX(), crotchLocationLocation.getY()));
 		g2.draw(new Line2D.Double(rightFootLocationLocation.getX(), rightFootLocationLocation.getY(), crotchLocationLocation.getX(), crotchLocationLocation.getY()));
 		g2.draw(new Line2D.Double(crotchLocationLocation.getX(), crotchLocationLocation.getY(), neckLocation.getX(), neckLocation.getY()));
+		//if goliath has been hit then draw a square on his head else draw a circle
 		if(PlayingArea.hitGoliath){
 			g2.draw(new Rectangle2D.Double(headLocation.getX(), headLocation.getY(), headRadius, headRadius));			
 		}else
