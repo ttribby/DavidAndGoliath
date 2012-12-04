@@ -16,6 +16,9 @@ public class PlayingArea extends JPanel{
 	public David david;
 	private Goliath goliath;
 	public Rock rock;
+	public Rock firstRockQuiz;
+	public Rock secondRockQuiz;
+	
 	public Sling sling;
 	public Graphics theGraphics;
 	public PlayingArea(MainWindow mainWindow){
@@ -45,14 +48,15 @@ public class PlayingArea extends JPanel{
 	private Location mouseClickLocation;
 	@Override
 	protected void paintComponent(Graphics g) {
+
 		Graphics2D g2 = (Graphics2D) g;
-		
+
 		// TODO Auto-generated method stub
 		super.paintComponent(g);
 		david.drawDavid(g);
 		goliath.drawGoliath(g);
-		
-		
+
+
 		//draw line
 		if(drawLine){
 			//use graphics2 because it can take doubles as inputs
@@ -65,12 +69,28 @@ public class PlayingArea extends JPanel{
 			}
 			mainWindow.southDisplay.powerResult.setText(distanceDragged/2 + "%");
 			sling.drawNextEndOfSlingLocation(angle, /*5*/distanceDragged/50+3, g,shootSling);
-		//draw rock
+			//draw rock
 		}else{
-			rock.updateRockLocation(g,sling.endOfSling);
+
+			if(quizing){
+				firstRockQuiz = new Rock(0,100);
+				secondRockQuiz = new Rock(0,50);
+				firstRockQuiz.updateRockLocation(g,sling.endOfSling);
+				secondRockQuiz.updateRockLocation(g,sling.endOfSling);
+			}else{
+				if(!hitGoliath){
+					rock.updateRockLocation(g,sling.endOfSling);
+				}else{
+					hitGoliath = false;
+					mainWindow.win();
+
+				}
+			}
 		}
 	}//////////////////}//////////////////}//////////////////}//////////////////}//////////////////}//////////////////}//////////////////
 
+	public static boolean hitGoliath;
+	public boolean quizing;
 	//shooting angle from 0 to 360
 	private boolean shootSling = false;
 	private int shootingAngle;

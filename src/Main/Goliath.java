@@ -15,14 +15,13 @@ public class Goliath {
 	
 		rHandLocation= new Location(975,75+jumper);
 		lHandLocation= new Location(975,70+jumper);
-		headRadius = 45;
-		headLocation = new Location(1025 - headRadius/2,50-headRadius+jumper);
+ 
 	}
-	private final int  jumper = 200;
-	public int headRadius;
+	private final static int  jumper = 200;
+	public final static int headRadius = 45;
 	public Location rHandLocation;
 	public Location lHandLocation;
-	public Location headLocation;
+	public static final Location headLocation = new Location(1025 - headRadius/2,50-headRadius+jumper);
 	public Location crotchLocationLocation;
 	public Location leftFootLocationLocation;
 	public Location rightFootLocationLocation;
